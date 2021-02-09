@@ -123,14 +123,18 @@ img {
     outline: none;
 }
 
+/* css pseudo-elements */
+/* The pseudo-element can be used to insert some 
+   content ::before (or ::after) the content of an element. */
+/* the below inserts a white belt */
 .showcase::before,
 .showcase::after {
     content: '';
     position: absolute;
-    height: 100px;
-    bottom: -70px;
-    right: 0;
-    left: 0;
+    height: 100px;  /* width of the belt */
+    bottom: -70px;  /* vertical position of the belt */
+    right: 0;  /* margin on the right */
+    left: 0;   /* margin on the left */
     background: #fff;
     transform: skewY(-3deg);
     -webkit-transform: skewY(-3deg);
