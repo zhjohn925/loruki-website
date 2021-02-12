@@ -1,0 +1,175 @@
+
+/* pick Lato light 300 from https://fonts.google.com */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap'); 
+
+/* define custom properties (root domain) */
+:root {
+    --primary-color: #047aed;
+}
+
+/* Reset */
+* {
+    box-sizing: border-box; /* add padding inside box, not to the overall width */
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: #333;
+    line-height: 1.6em;
+}
+
+ul {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+}
+
+h1, h2 {
+    font-weight: 300;
+    line-height: 1.2em;
+    margin: 10px 0;  /* top, bottom = 10px, left, right = 0 */
+}
+
+p {
+    margin: 10px 0;  /* top, bottom = 10px, left, right = 0 */
+}
+
+img {
+    width: 100%; /* full width of its container */
+}
+
+/**********************
+ navbar 
+***********************/
+.navbar {
+    background-color: var(--primary-color);
+    color: #fff;
+    height: 70px;
+}
+
+.navbar ul {
+    display: flex;
+}
+
+.navbar a {
+    color: #fff;
+    padding: 10px;
+    margin: 0 5px;
+}
+
+.navbar a:hover {
+    border-bottom: 2px #fff solid;
+}
+
+.navbar .flex {
+    justify-content: space-between;
+}
+
+/**********************
+ Showcase
+***********************/
+.showcase {
+    height: 400px;
+    background-color: var(--primary-color);
+    color: #fff;
+    position: relative;  /* if want absolute elements in it */
+}
+
+.showcase h1 {
+    font-size: 40px;
+}
+
+.showcase p {
+    margin: 20px 0;  /* top bottom: 20px, left right: 0 */
+}
+
+.showcase .grid {
+    overflow: visible;  
+    /* this avoids scollbar. make the form inside showcase visible w/o scollbar */
+    grid-template-columns: 55% 45%;
+    gap: 30px;
+}
+
+.showcase-form {
+    position: relative;
+    top: 60px;
+    height: 350px;  /* this is too big so overflow the area */
+    width: 400px;
+    padding: 40px;
+    z-index: 100;  /* always be in the front */
+}
+
+.showcase-form .form-control {
+    margin: 30px 0;
+}
+
+/* excluding button */
+.showcase-form input[type='text'],
+.showcase-form input[type='email'] {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+/* remove outline border upon focus */
+.showcase-form input:focus {
+    outline: none;
+}
+
+/* css pseudo-elements */
+/* The pseudo-element can be used to insert some 
+   content ::before (or ::after) the content of an element. */
+/* the below inserts a white belt */
+.showcase::before,
+.showcase::after {
+    content: '';
+    position: absolute;
+    height: 100px;  /* width of the belt */
+    bottom: -70px;  /* vertical position of the belt */
+    right: 0;  /* margin on the right */
+    left: 0;   /* margin on the left */
+    background: #fff;
+    transform: skewY(-3deg);
+    -webkit-transform: skewY(-3deg);
+    -moz-transform: skewY(-3deg);
+    -ms-transform: skewY(-3deg);
+}
+
+.stats {
+    padding-top: 100px;
+}
+
+.stats-heading {
+    max-width: 500px;
+    margin: auto;
+}
+
+.stats .grid h3 {
+    font-size: 35px;
+}
+
+.stats .grid p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Cli */
+/* 2 rows and 3 columns */
+.cli .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+}
+
+/* the first child which is an image in this case. 
+   allocate the image two columns and two rows */
+.cli .grid > *:first-child {
+    grid-column: 1 / span 2;
+    grid-row: 1 / span 2;
+}
